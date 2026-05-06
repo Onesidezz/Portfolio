@@ -2,6 +2,8 @@ import { useScroll, useTransform, motion } from 'framer-motion'
 import { useRef } from 'react'
 import LiveProjectButton from './LiveProjectButton'
 
+const SCREENSHOT_BASE = `${import.meta.env.BASE_URL}screenshots/`
+
 const PROJECTS = [
   {
     num: '01',
@@ -9,12 +11,9 @@ const PROJECTS = [
     name: 'Toyota Protect',
     tech: '.NET Core Web API | JWT | 3rd Party API',
     url: 'https://toyota.ttibi.co.in',
-    col1img1:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-    col1img2:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-    col2img:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    img1: `${SCREENSHOT_BASE}toyota-top.png`,
+    img2: `${SCREENSHOT_BASE}toyota-scroll.png`,
+    img3: `${SCREENSHOT_BASE}toyota-full.png`,
   },
   {
     num: '02',
@@ -22,12 +21,9 @@ const PROJECTS = [
     name: 'Vencru',
     tech: '.NET Core API | Shopify | Webhooks',
     url: 'https://vencru.com',
-    col1img1:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-    col1img2:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-    col2img:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
+    img1: `${SCREENSHOT_BASE}vencru-top.png`,
+    img2: `${SCREENSHOT_BASE}vencru-scroll.png`,
+    img3: `${SCREENSHOT_BASE}vencru-full.png`,
   },
   {
     num: '03',
@@ -35,12 +31,9 @@ const PROJECTS = [
     name: 'Credentia',
     tech: '.NET Core API | AWS | Microservices',
     url: 'https://credentia.com',
-    col1img1:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
-    col1img2:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
-    col2img:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85',
+    img1: `${SCREENSHOT_BASE}credentia-top.png`,
+    img2: `${SCREENSHOT_BASE}credentia-scroll.png`,
+    img3: `${SCREENSHOT_BASE}credentia-full.png`,
   },
 ]
 
@@ -113,7 +106,7 @@ function ProjectCard({ project, index, totalCards }: ProjectCardProps) {
           {/* Left column - 40% */}
           <div className="flex flex-col gap-3 sm:gap-4 w-[40%]">
             <img
-              src={project.col1img1}
+              src={project.img1}
               alt=""
               loading="lazy"
               className="w-full object-cover"
@@ -123,7 +116,7 @@ function ProjectCard({ project, index, totalCards }: ProjectCardProps) {
               }}
             />
             <img
-              src={project.col1img2}
+              src={project.img2}
               alt=""
               loading="lazy"
               className="w-full object-cover"
@@ -136,7 +129,7 @@ function ProjectCard({ project, index, totalCards }: ProjectCardProps) {
           {/* Right column - 60% */}
           <div className="w-[60%]">
             <img
-              src={project.col2img}
+              src={project.img3}
               alt=""
               loading="lazy"
               className="w-full h-full object-cover"
